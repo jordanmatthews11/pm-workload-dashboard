@@ -8,6 +8,7 @@ import MetricsConfig from './components/MetricsConfig';
 import TrendCharts from './components/TrendCharts';
 import HistoryView from './components/HistoryView';
 import TeamManager from './components/TeamManager';
+import HowTo from './components/HowTo';
 import {
   LayoutDashboard,
   PenSquare,
@@ -17,9 +18,11 @@ import {
   Users,
   LogOut,
   Loader2,
+  HelpCircle,
 } from 'lucide-react';
 
 const tabs = [
+  { id: 'howto', label: 'How To', icon: HelpCircle },
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { id: 'entry', label: 'Enter Data', icon: PenSquare },
   { id: 'trends', label: 'Trends', icon: TrendingUp },
@@ -40,7 +43,7 @@ function LoadingScreen({ message }) {
 }
 
 function AppContent() {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTab, setActiveTab] = useState('howto');
   const { user, signOut } = useAuth();
   const { firestoreReady, seeding } = useStore();
 
@@ -130,6 +133,7 @@ function AppContent() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        {activeTab === 'howto' && <HowTo />}
         {activeTab === 'dashboard' && <Dashboard />}
         {activeTab === 'entry' && <DataEntry />}
         {activeTab === 'metrics' && <MetricsConfig />}
