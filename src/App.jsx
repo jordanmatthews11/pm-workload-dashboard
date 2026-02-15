@@ -43,7 +43,7 @@ function LoadingScreen({ message }) {
 }
 
 function AppContent() {
-  const [activeTab, setActiveTab] = useState('howto');
+  const [activeTab, setActiveTab] = useState('dashboard');
   const { user, signOut } = useAuth();
   const { firestoreReady, seeding } = useStore();
 
