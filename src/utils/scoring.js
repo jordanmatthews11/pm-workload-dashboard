@@ -38,21 +38,21 @@ export function calcPMScores(pmData, config) {
  */
 export function getScoreColor(score, maxReasonable = 100) {
   const pct = (score / maxReasonable) * 100;
-  if (pct < 33) return 'text-green-600';
-  if (pct < 66) return 'text-amber-500';
-  return 'text-red-600';
+  if (pct < 33) return 'text-[#81D994]';
+  if (pct < 66) return 'text-[#FFA450]';
+  return 'text-[#7554C2]';
 }
 
 export function getScoreBgColor(score, maxReasonable = 100) {
   const pct = (score / maxReasonable) * 100;
   if (pct < 33) return 'bg-green-50 border-green-200';
   if (pct < 66) return 'bg-amber-50 border-amber-200';
-  return 'bg-red-50 border-red-200';
+  return 'bg-[#ECE5FF] border-[#C39CFF]';
 }
 
 export function getScoreBarColor(score, maxReasonable = 100) {
   const pct = (score / maxReasonable) * 100;
-  if (pct < 33) return '#22c55e';
-  if (pct < 66) return '#f59e0b';
-  return '#ef4444';
+  if (pct < 33) return '#81D994';
+  if (pct < 66) return '#FFA450';
+  return '#7554C2';
 }
