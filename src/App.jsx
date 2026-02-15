@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { StoreProvider } from './store/useStore';
+import { AuthProvider, useAuth } from './store/AuthContext';
+import { StoreProvider, useStore } from './store/useStore';
+import LoginPage from './components/LoginPage';
 import Dashboard from './components/Dashboard';
 import DataEntry from './components/DataEntry';
 import MetricsConfig from './components/MetricsConfig';
@@ -14,6 +16,8 @@ import {
   Clock,
   Users,
   Activity,
+  LogOut,
+  Loader2,
 } from 'lucide-react';
 
 const tabs = [
@@ -25,8 +29,29 @@ const tabs = [
   { id: 'team', label: 'Team & Settings', icon: Users },
 ];
 
+function LoadingScreen({ message }) {
+  return (
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+      <div className="text-center">
+        <Loader2 className="w-10 h-10 text-blue-600 animate-spin mx-auto mb-4" />
+        <p className="text-slate-500 text-sm">{message || 'Loading...'}</p>
+      </div>
+    </div>
+  );
+}
+
 function AppContent() {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const { user, signOut } = useAuth();
+  const { firestoreReady, seeding } = useStore();
+
+  if (seeding) {
+    return <LoadingScreen message="Setting up your workspace..." />;
+  }
+
+  if (!firestoreReady) {
+    return <LoadingScreen message="Loading data..." />;
+  }
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -42,6 +67,34 @@ function AppContent() {
                 <h1 className="text-lg font-bold text-slate-800 leading-tight">PM Workload</h1>
                 <p className="text-xs text-slate-400 leading-tight">Team Capacity Tracker</p>
               </div>
+            </div>
+
+            {/* User Menu */}
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                {user?.photoURL ? (
+                  <img
+                    src={user.photoURL}
+                    alt={user.displayName}
+                    className="w-8 h-8 rounded-full border border-slate-200"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">
+                    {user?.displayName?.charAt(0) || user?.email?.charAt(0) || '?'}
+                  </div>
+                )}
+                <span className="text-sm font-medium text-slate-700 hidden sm:block">
+                  {user?.displayName || user?.email}
+                </span>
+              </div>
+              <button
+                onClick={signOut}
+                className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-all"
+                title="Sign out"
+              >
+                <LogOut className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </div>
@@ -86,10 +139,28 @@ function AppContent() {
   );
 }
 
-export default function App() {
+function AuthGate() {
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return <LoadingScreen message="Checking authentication..." />;
+  }
+
+  if (!user) {
+    return <LoginPage />;
+  }
+
   return (
     <StoreProvider>
       <AppContent />
     </StoreProvider>
+  );
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AuthGate />
+    </AuthProvider>
   );
 }
