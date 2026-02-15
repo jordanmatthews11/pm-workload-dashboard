@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useAuth } from '../store/AuthContext';
-import { Activity, LogIn } from 'lucide-react';
 
 export default function LoginPage() {
   const { signInWithGoogle } = useAuth();
@@ -14,7 +13,6 @@ export default function LoginPage() {
       await signInWithGoogle();
     } catch (err) {
       if (err.code === 'auth/popup-closed-by-user') {
-        // User closed the popup, not a real error
         setError(null);
       } else {
         setError(err.message || 'Failed to sign in. Please try again.');
@@ -25,19 +23,21 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-violet-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#F4F9FF] via-[#ECE5FF] to-[#C39CFF]/20 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Logo & Branding */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-200">
-            <Activity className="w-9 h-9 text-white" />
-          </div>
-          <h1 className="text-3xl font-bold text-slate-800">PM Workload</h1>
-          <p className="text-slate-500 mt-2">Team Capacity Tracker</p>
+          <img
+            src={import.meta.env.BASE_URL + 'storesight-logo.png'}
+            alt="Storesight"
+            className="h-12 mx-auto mb-6"
+          />
+          <h1 className="text-2xl font-bold text-[#4E339C]">PM Workload</h1>
+          <p className="text-slate-500 mt-1">Team Capacity Tracker</p>
         </div>
 
         {/* Login Card */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/50 p-8">
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-xl shadow-[#4E339C]/5 p-8">
           <h2 className="text-lg font-semibold text-slate-700 text-center mb-2">
             Sign in to continue
           </h2>
@@ -57,7 +57,7 @@ export default function LoginPage() {
             className="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-700 font-medium hover:bg-slate-50 hover:border-slate-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? (
-              <div className="w-5 h-5 border-2 border-slate-300 border-t-blue-600 rounded-full animate-spin" />
+              <div className="w-5 h-5 border-2 border-slate-300 border-t-[#4E339C] rounded-full animate-spin" />
             ) : (
               <svg className="w-5 h-5" viewBox="0 0 24 24">
                 <path

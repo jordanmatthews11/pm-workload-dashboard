@@ -61,8 +61,8 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
-              <Users className="w-5 h-5 text-blue-600" />
+            <div className="w-10 h-10 rounded-lg bg-[#ECE5FF] flex items-center justify-center">
+              <Users className="w-5 h-5 text-[#4E339C]" />
             </div>
             <div>
               <p className="text-sm text-slate-500">Team Size</p>
@@ -72,8 +72,8 @@ export default function Dashboard() {
         </div>
         <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 rounded-lg bg-violet-50 flex items-center justify-center">
-              <Activity className="w-5 h-5 text-violet-600" />
+            <div className="w-10 h-10 rounded-lg bg-[#ECE5FF] flex items-center justify-center">
+              <Activity className="w-5 h-5 text-[#7554C2]" />
             </div>
             <div>
               <p className="text-sm text-slate-500">Team Avg Score</p>
@@ -83,8 +83,8 @@ export default function Dashboard() {
         </div>
         <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center">
-              <AlertTriangle className="w-5 h-5 text-amber-600" />
+            <div className="w-10 h-10 rounded-lg bg-[#FFA450]/10 flex items-center justify-center">
+              <AlertTriangle className="w-5 h-5 text-[#FFA450]" />
             </div>
             <div>
               <p className="text-sm text-slate-500">Highest Workload</p>
@@ -129,7 +129,7 @@ export default function Dashboard() {
                   {pm.finalScore.toFixed(1)}
                 </p>
                 {pm.delta !== 0 && (
-                  <div className={`flex items-center gap-1 text-xs ${pm.delta > 0 ? 'text-red-500' : 'text-green-500'}`}>
+                  <div className={`flex items-center gap-1 text-xs ${pm.delta > 0 ? 'text-[#F8005E]' : 'text-[#81D994]'}`}>
                     {pm.delta > 0 ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
                     {pm.delta > 0 ? '+' : ''}{pm.delta.toFixed(1)}
                   </div>

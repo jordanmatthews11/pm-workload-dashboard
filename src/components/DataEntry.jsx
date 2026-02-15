@@ -111,7 +111,7 @@ export default function DataEntry() {
               type="date"
               value={date}
               onChange={(e) => handleDateChange(e.target.value)}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4E339C] focus:border-[#4E339C]"
             />
           </div>
           <div>
@@ -120,7 +120,7 @@ export default function DataEntry() {
               type="text"
               value={label}
               onChange={(e) => setLabel(e.target.value)}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4E339C] focus:border-[#4E339C]"
               placeholder="e.g. Week of 2/9/26"
             />
           </div>
@@ -129,8 +129,8 @@ export default function DataEntry() {
               onClick={handleSave}
               className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white transition-all ${
                 saved
-                  ? 'bg-green-500 hover:bg-green-600'
-                  : 'bg-blue-600 hover:bg-blue-700'
+                  ? 'bg-[#81D994] hover:bg-[#6bc480]'
+                  : 'bg-[#4E339C] hover:bg-[#463572]'
               }`}
             >
               <Save className="w-4 h-4" />
@@ -163,7 +163,7 @@ export default function DataEntry() {
                 className="w-full flex items-center justify-between px-5 py-4 hover:bg-slate-50"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">
+                  <div className="w-8 h-8 rounded-full bg-[#ECE5FF] text-[#4E339C] flex items-center justify-center font-bold text-sm">
                     {pm.charAt(0)}
                   </div>
                   <h3 className="font-semibold text-slate-800">{pm}</h3>
@@ -174,7 +174,7 @@ export default function DataEntry() {
                     <span className="font-semibold text-slate-700">{scores.loadScore.toFixed(1)}</span>
                     <span className="mx-2 text-slate-300">|</span>
                     <span className="text-sm text-slate-500">Score: </span>
-                    <span className="font-bold text-blue-600">{scores.finalScore.toFixed(1)}</span>
+                    <span className="font-bold text-[#4E339C]">{scores.finalScore.toFixed(1)}</span>
                   </div>
                   {isExpanded ? (
                     <ChevronUp className="w-5 h-5 text-slate-400" />
@@ -205,7 +205,7 @@ export default function DataEntry() {
                             step="0.5"
                             value={formData[pm].metrics[metric.id] ?? 0}
                             onChange={(e) => updateMetric(pm, metric.id, e.target.value)}
-                            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4E339C] focus:border-[#4E339C]"
                           />
                         </div>
                       ))}
@@ -234,9 +234,9 @@ export default function DataEntry() {
                               step="0.5"
                               value={formData[pm].subjective[metric.id] ?? metric.min}
                               onChange={(e) => updateSubjective(pm, metric.id, e.target.value)}
-                              className="flex-1 accent-blue-600"
+                              className="flex-1"
                             />
-                            <span className="text-lg font-bold text-blue-600 w-8 text-center">
+                            <span className="text-lg font-bold text-[#4E339C] w-8 text-center">
                               {formData[pm].subjective[metric.id] ?? 0}
                             </span>
                           </div>
@@ -246,7 +246,7 @@ export default function DataEntry() {
                   </div>
 
                   {/* Live Score Summary */}
-                  <div className="mt-4 bg-slate-50 rounded-lg p-3 flex items-center justify-between">
+                  <div className="mt-4 bg-[#ECE5FF]/40 rounded-lg p-3 flex items-center justify-between">
                     <span className="text-sm text-slate-500">
                       Load Score = {config.metrics
                         .map((m) => `${formData[pm].metrics[m.id] ?? 0} x ${m.weight}`)
@@ -254,7 +254,7 @@ export default function DataEntry() {
                       {' = '}
                       <strong>{scores.loadScore.toFixed(1)}</strong>
                     </span>
-                    <span className="text-sm font-semibold text-blue-600">
+                    <span className="text-sm font-semibold text-[#4E339C]">
                       Final: {scores.finalScore.toFixed(1)}
                     </span>
                   </div>

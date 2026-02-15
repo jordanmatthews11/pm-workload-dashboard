@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #3b82f6;
-  --color-primary-dark: #2563eb;
-  --color-danger: #ef4444;
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
+  --color-primary: #4E339C;
+  --color-primary-dark: #463572;
+  --color-primary-mid: #7554C2;
+  --color-primary-light: #9C77EA;
+  --color-primary-bg: #ECE5FF;
+  --color-primary-bg-subtle: #F4F9FF;
+  --color-danger: #F8005E;
+  --color-success: #81D994;
+  --color-warning: #FFA450;
 }
 
 body {
@@ -48,4 +52,9 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+/* Slider accent override for brand purple */
+input[type="range"] {
+  accent-color: #4E339C;
 }

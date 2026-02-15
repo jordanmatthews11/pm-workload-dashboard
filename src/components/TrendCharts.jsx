@@ -6,7 +6,7 @@ import {
   AreaChart, Area,
 } from 'recharts';
 
-const PM_COLORS = ['#3b82f6', '#f59e0b', '#10b981', '#ef4444', '#8b5cf6', '#ec4899', '#06b6d4', '#f97316'];
+const PM_COLORS = ['#4E339C', '#FFA450', '#81D994', '#F8005E', '#2F00FF', '#9C77EA', '#34508A', '#FFDF50'];
 
 export default function TrendCharts() {
   const { state } = useStore();
@@ -76,7 +76,7 @@ export default function TrendCharts() {
                 onClick={() => setChartType(opt.value)}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                   chartType === opt.value
-                    ? 'bg-blue-600 text-white shadow-sm'
+                    ? 'bg-[#4E339C] text-white shadow-sm'
                     : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 }`}
               >

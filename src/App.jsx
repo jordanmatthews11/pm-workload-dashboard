@@ -15,7 +15,6 @@ import {
   TrendingUp,
   Clock,
   Users,
-  Activity,
   LogOut,
   Loader2,
 } from 'lucide-react';
@@ -33,7 +32,7 @@ function LoadingScreen({ message }) {
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center">
       <div className="text-center">
-        <Loader2 className="w-10 h-10 text-blue-600 animate-spin mx-auto mb-4" />
+        <Loader2 className="w-10 h-10 text-[#4E339C] animate-spin mx-auto mb-4" />
         <p className="text-slate-500 text-sm">{message || 'Loading...'}</p>
       </div>
     </div>
@@ -60,11 +59,14 @@ function AppContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center">
-                <Activity className="w-5 h-5 text-white" />
-              </div>
+              <img
+                src={import.meta.env.BASE_URL + 'storesight-logo.png'}
+                alt="Storesight"
+                className="h-8"
+              />
+              <div className="w-px h-8 bg-slate-200" />
               <div>
-                <h1 className="text-lg font-bold text-slate-800 leading-tight">PM Workload</h1>
+                <h1 className="text-sm font-bold text-slate-800 leading-tight">PM Workload</h1>
                 <p className="text-xs text-slate-400 leading-tight">Team Capacity Tracker</p>
               </div>
             </div>
@@ -80,7 +82,7 @@ function AppContent() {
                     referrerPolicy="no-referrer"
                   />
                 ) : (
-                  <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">
+                  <div className="w-8 h-8 rounded-full bg-[#ECE5FF] text-[#4E339C] flex items-center justify-center font-bold text-sm">
                     {user?.displayName?.charAt(0) || user?.email?.charAt(0) || '?'}
                   </div>
                 )}
@@ -113,7 +115,7 @@ function AppContent() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
                     isActive
-                      ? 'bg-blue-50 text-blue-700'
+                      ? 'bg-[#ECE5FF] text-[#4E339C]'
                       : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'
                   }`}
                 >

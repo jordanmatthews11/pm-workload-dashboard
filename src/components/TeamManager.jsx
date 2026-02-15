@@ -59,8 +59,8 @@ export default function TeamManager() {
       {/* Team Members */}
       <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
-            <Users className="w-5 h-5 text-blue-600" />
+          <div className="w-10 h-10 rounded-lg bg-[#ECE5FF] flex items-center justify-center">
+            <Users className="w-5 h-5 text-[#4E339C]" />
           </div>
           <div>
             <h3 className="font-semibold text-slate-800">Team Members</h3>
@@ -75,14 +75,14 @@ export default function TeamManager() {
               className="flex items-center justify-between bg-slate-50 rounded-lg px-4 py-3 group"
             >
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">
+                <div className="w-8 h-8 rounded-full bg-[#ECE5FF] text-[#4E339C] flex items-center justify-center font-bold text-sm">
                   {name.charAt(0)}
                 </div>
                 <span className="font-medium text-slate-700">{name}</span>
               </div>
               <button
                 onClick={() => dispatch({ type: 'REMOVE_TEAM_MEMBER', payload: name })}
-                className="p-1.5 text-slate-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                className="p-1.5 text-slate-400 hover:text-[#F8005E] opacity-0 group-hover:opacity-100 transition-opacity"
               >
                 <Trash2 className="w-4 h-4" />
               </button>
@@ -97,12 +97,12 @@ export default function TeamManager() {
             onChange={(e) => setNewName(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && addMember()}
             placeholder="New team member name"
-            className="flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4E339C]"
           />
           <button
             onClick={addMember}
             disabled={!newName.trim()}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-4 py-2 bg-[#4E339C] text-white rounded-lg text-sm font-medium hover:bg-[#463572] disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <UserPlus className="w-4 h-4" /> Add
           </button>
@@ -127,7 +127,7 @@ export default function TeamManager() {
           </button>
           <button
             onClick={handleReset}
-            className="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-600 rounded-lg text-sm font-medium hover:bg-red-100"
+            className="flex items-center gap-2 px-4 py-2 bg-red-50 text-[#F8005E] rounded-lg text-sm font-medium hover:bg-red-100"
           >
             <RotateCcw className="w-4 h-4" /> Reset to Defaults
           </button>

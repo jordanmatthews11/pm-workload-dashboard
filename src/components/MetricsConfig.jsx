@@ -40,8 +40,8 @@ export default function MetricsConfig() {
       {/* Load Score Weight */}
       <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-lg bg-violet-50 flex items-center justify-center">
-            <Scale className="w-5 h-5 text-violet-600" />
+          <div className="w-10 h-10 rounded-lg bg-[#ECE5FF] flex items-center justify-center">
+            <Scale className="w-5 h-5 text-[#7554C2]" />
           </div>
           <div>
             <h3 className="font-semibold text-slate-800">Final Score Formula</h3>
@@ -62,7 +62,7 @@ export default function MetricsConfig() {
             onChange={(e) =>
               dispatch({ type: 'UPDATE_LOAD_SCORE_WEIGHT', payload: parseFloat(e.target.value) || 0 })
             }
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4E339C]"
           />
         </div>
       </div>
@@ -70,8 +70,8 @@ export default function MetricsConfig() {
       {/* Quantitative Metrics */}
       <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
-            <Sliders className="w-5 h-5 text-blue-600" />
+          <div className="w-10 h-10 rounded-lg bg-[#ECE5FF] flex items-center justify-center">
+            <Sliders className="w-5 h-5 text-[#4E339C]" />
           </div>
           <div>
             <h3 className="font-semibold text-slate-800">Quantitative Metrics</h3>
@@ -112,12 +112,12 @@ export default function MetricsConfig() {
                       payload: { id: metric.id, updates: { weight: parseFloat(e.target.value) || 0 } },
                     })
                   }
-                  className="w-16 rounded border border-slate-300 px-2 py-1 text-sm text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-16 rounded border border-slate-300 px-2 py-1 text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#4E339C]"
                 />
               </div>
               <button
                 onClick={() => dispatch({ type: 'REMOVE_METRIC', payload: { id: metric.id } })}
-                className="p-1.5 text-slate-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                className="p-1.5 text-slate-400 hover:text-[#F8005E] opacity-0 group-hover:opacity-100 transition-opacity"
               >
                 <Trash2 className="w-4 h-4" />
               </button>
@@ -135,7 +135,7 @@ export default function MetricsConfig() {
               onChange={(e) => setNewMetricName(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && addMetric()}
               placeholder="e.g. Support Tickets Assigned"
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4E339C]"
             />
           </div>
           <div className="w-20">
@@ -146,13 +146,13 @@ export default function MetricsConfig() {
               min="0"
               value={newMetricWeight}
               onChange={(e) => setNewMetricWeight(parseFloat(e.target.value) || 0)}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#4E339C]"
             />
           </div>
           <button
             onClick={addMetric}
             disabled={!newMetricName.trim()}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-4 py-2 bg-[#4E339C] text-white rounded-lg text-sm font-medium hover:bg-[#463572] disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <Plus className="w-4 h-4" /> Add
           </button>
@@ -162,8 +162,8 @@ export default function MetricsConfig() {
       {/* Subjective Metrics */}
       <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center">
-            <Scale className="w-5 h-5 text-amber-600" />
+          <div className="w-10 h-10 rounded-lg bg-[#FFA450]/10 flex items-center justify-center">
+            <Scale className="w-5 h-5 text-[#FFA450]" />
           </div>
           <div>
             <h3 className="font-semibold text-slate-800">Subjective Rating Metrics</h3>
@@ -202,7 +202,7 @@ export default function MetricsConfig() {
                       payload: { id: metric.id, updates: { min: parseInt(e.target.value) || 0 } },
                     })
                   }
-                  className="w-12 rounded border border-slate-300 px-2 py-1 text-sm text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-12 rounded border border-slate-300 px-2 py-1 text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#4E339C]"
                 />
                 <span className="text-slate-400">-</span>
                 <input
@@ -214,7 +214,7 @@ export default function MetricsConfig() {
                       payload: { id: metric.id, updates: { max: parseInt(e.target.value) || 5 } },
                     })
                   }
-                  className="w-12 rounded border border-slate-300 px-2 py-1 text-sm text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-12 rounded border border-slate-300 px-2 py-1 text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#4E339C]"
                 />
               </div>
               <div className="flex items-center gap-2">
@@ -230,14 +230,14 @@ export default function MetricsConfig() {
                       payload: { id: metric.id, updates: { weight: parseFloat(e.target.value) || 0 } },
                     })
                   }
-                  className="w-16 rounded border border-slate-300 px-2 py-1 text-sm text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-16 rounded border border-slate-300 px-2 py-1 text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#4E339C]"
                 />
               </div>
               <button
                 onClick={() =>
                   dispatch({ type: 'REMOVE_SUBJECTIVE_METRIC', payload: { id: metric.id } })
                 }
-                className="p-1.5 text-slate-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                className="p-1.5 text-slate-400 hover:text-[#F8005E] opacity-0 group-hover:opacity-100 transition-opacity"
               >
                 <Trash2 className="w-4 h-4" />
               </button>
@@ -255,7 +255,7 @@ export default function MetricsConfig() {
               onChange={(e) => setNewSubjName(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && addSubjectiveMetric()}
               placeholder='e.g. "Team Collaboration Score"'
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4E339C]"
             />
           </div>
           <div className="w-16">
@@ -264,7 +264,7 @@ export default function MetricsConfig() {
               type="number"
               value={newSubjMin}
               onChange={(e) => setNewSubjMin(parseInt(e.target.value) || 0)}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#4E339C]"
             />
           </div>
           <div className="w-16">
@@ -273,7 +273,7 @@ export default function MetricsConfig() {
               type="number"
               value={newSubjMax}
               onChange={(e) => setNewSubjMax(parseInt(e.target.value) || 5)}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#4E339C]"
             />
           </div>
           <div className="w-20">
@@ -284,13 +284,13 @@ export default function MetricsConfig() {
               min="0"
               value={newSubjWeight}
               onChange={(e) => setNewSubjWeight(parseFloat(e.target.value) || 0)}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#4E339C]"
             />
           </div>
           <button
             onClick={addSubjectiveMetric}
             disabled={!newSubjName.trim()}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-4 py-2 bg-[#4E339C] text-white rounded-lg text-sm font-medium hover:bg-[#463572] disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <Plus className="w-4 h-4" /> Add
           </button>
@@ -298,25 +298,25 @@ export default function MetricsConfig() {
       </div>
 
       {/* Formula Preview */}
-      <div className="bg-gradient-to-r from-slate-800 to-slate-700 rounded-xl p-5 text-white shadow-sm">
+      <div className="bg-gradient-to-r from-[#4E339C] to-[#7554C2] rounded-xl p-5 text-white shadow-sm">
         <h3 className="font-semibold mb-3">Current Formula Preview</h3>
         <div className="font-mono text-sm space-y-2">
-          <p className="text-slate-300">
-            <span className="text-blue-300">Load Score</span> ={' '}
+          <p className="text-white/80">
+            <span className="text-[#C39CFF]">Load Score</span> ={' '}
             {config.metrics.map((m, i) => (
               <span key={m.id}>
                 {i > 0 && ' + '}
-                <span className="text-amber-300">{m.name}</span> x {m.weight}
+                <span className="text-[#FFDF50]">{m.name}</span> x {m.weight}
               </span>
             ))}
           </p>
-          <p className="text-slate-300">
-            <span className="text-green-300">Final Score</span> ={' '}
-            <span className="text-blue-300">Load Score</span> x {config.loadScoreWeight}
+          <p className="text-white/80">
+            <span className="text-[#81D994]">Final Score</span> ={' '}
+            <span className="text-[#C39CFF]">Load Score</span> x {config.loadScoreWeight}
             {config.subjectiveMetrics.map((m) => (
               <span key={m.id}>
                 {' + '}
-                <span className="text-amber-300">{m.name}</span> x {m.weight}
+                <span className="text-[#FFDF50]">{m.name}</span> x {m.weight}
               </span>
             ))}
           </p>

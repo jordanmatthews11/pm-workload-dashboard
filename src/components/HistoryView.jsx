@@ -49,7 +49,7 @@ export default function HistoryView() {
               className="w-full flex items-center justify-between px-5 py-4 hover:bg-slate-50"
             >
               <div className="flex items-center gap-3">
-                <Calendar className="w-5 h-5 text-slate-400" />
+                <Calendar className="w-5 h-5 text-[#7554C2]" />
                 <div className="text-left">
                   <h3 className="font-semibold text-slate-800">
                     {entry.label || entry.date}
@@ -121,7 +121,7 @@ export default function HistoryView() {
                             <td className="py-2 pr-4 text-center font-medium text-slate-700">
                               {scores.loadScore.toFixed(1)}
                             </td>
-                            <td className="py-2 text-center font-bold text-blue-600">
+                            <td className="py-2 text-center font-bold text-[#4E339C]">
                               {scores.finalScore.toFixed(1)}
                             </td>
                           </tr>
@@ -134,7 +134,7 @@ export default function HistoryView() {
                 <div className="mt-4 flex justify-end">
                   <button
                     onClick={() => handleDelete(entry.date)}
-                    className="flex items-center gap-2 px-3 py-1.5 text-sm text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg"
+                    className="flex items-center gap-2 px-3 py-1.5 text-sm text-[#F8005E] hover:text-[#D60046] hover:bg-red-50 rounded-lg"
                   >
                     <Trash2 className="w-4 h-4" /> Delete Entry
                   </button>
